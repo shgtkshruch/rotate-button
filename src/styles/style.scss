@@ -1,2 +1,57 @@
 @import "bourbon";
 @import "breakpoint";
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.button {
+  display: block;
+  width: 5em;
+  padding: 1em 5em;
+  margin: 0 auto;
+  text-indent: -9999em;
+  position: relative;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1em 4em;
+    content: 'read more';
+    text-align: center;
+    text-indent: 0;
+    text-transform: uppercase;
+
+    transform-origin: 50% 50% -1.9em;
+    transition: transform .3s;
+  }
+  &:before {
+    color: blue;
+    border: 4px solid blue;
+  }
+  &:after {
+    color: #fff;
+    background-color: blue;
+
+    transform: rotateX(-90deg);
+  }
+  &:hover {
+    &:before {
+      transform: rotateX(90deg);
+      opacity: .2;
+    }
+    &:after {
+      transform: rotateX(0);
+    }
+  }
+}
