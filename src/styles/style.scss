@@ -1,47 +1,53 @@
 @import "bourbon";
 @import "breakpoint";
 
-a {
-  text-decoration: none;
-}
-
-.container {
+body {
   width: 100vw;
   height: 100vh;
   display: table-cell;
   vertical-align: middle;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
 }
 
 .button {
+  $font-size: 1em;
+  $padding-tb: 1.2em;
+  $padding-rl: 0;
+  $padding: $padding-tb $padding-rl;
+  $border-width: em(4, 16);
+  $content-box: ( $font-size + $padding-tb * 2 + $border-width * 2 ) / 2 * -1;
+
   display: block;
-  width: 5em;
-  padding: 1em 5em;
+  position: relative;
+  width: 13em;
+  padding: $padding;
   margin: 0 auto;
   text-indent: -9999em;
-  position: relative;
   &:before,
   &:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1em 4em;
+    @include position(absolute, 0);
+    padding: $padding;
     content: 'read more';
+    font-size: $font-size;
     text-align: center;
     text-indent: 0;
     text-transform: uppercase;
 
-    transform-origin: 50% 50% -1.9em;
+    transform-origin: 50% 50% $content-box;
     transition: transform .3s;
   }
   &:before {
-    color: blue;
-    border: 4px solid blue;
+    color: darkturquoise;
+    border: $border-width solid darkturquoise;
+    line-height: 1;
   }
   &:after {
     color: #fff;
-    background-color: blue;
+    background-color: darkturquoise;
 
     transform: rotateX(-90deg);
   }
