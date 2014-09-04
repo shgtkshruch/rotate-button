@@ -1,0 +1,57 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  display: block;
+  position: relative;
+  width: 13em;
+  padding: 1.2em 0;
+  margin: 0 auto;
+  text-indent: -9999em;
+}
+.button:before, .button:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.2em 0;
+  content: 'read more';
+  font-size: 1em;
+  text-align: center;
+  text-indent: 0;
+  text-transform: uppercase;
+  -webkit-transform-origin: 50% 50% -1.95em;
+          transform-origin: 50% 50% -1.95em;
+  -webkit-transition: -webkit-transform .3s;
+          transition: transform .3s;
+}
+.button:before {
+  color: darkturquoise;
+  border: 0.25em solid darkturquoise;
+  line-height: 1;
+}
+.button:after {
+  color: #fff;
+  background-color: darkturquoise;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+}
+.button:hover:before {
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+  opacity: .2;
+}
+.button:hover:after {
+  -webkit-transform: rotateX(0);
+          transform: rotateX(0);
+}
